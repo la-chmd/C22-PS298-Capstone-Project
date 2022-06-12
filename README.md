@@ -9,7 +9,7 @@ Team Member
 |:---:|:---:|:---:|
 |M2425F3001|Ruth Febrian Sianturi|
 |M7200G1890|Luhung Damarran Achmad|https://github.com/la-chmd|
-|M2200G1880|Willy Ng|
+|M2200G1880|Willy Ng|https://github.com/Snow-00|
 |C7422J2995|Nabihah Syifah Dhia|
 |A2425G2999|Muhammad Nopriansyah|
-|A7425G2998|Ridho Dzaki Santoso|
+|A7425G2998|Ridho Dzaki Santoso|https://github.com/ridhodzaki|

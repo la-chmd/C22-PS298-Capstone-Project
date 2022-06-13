@@ -1,16 +1,17 @@
 import numpy as np
 import cv2
+import os
 import time
 
 # Load Yolo
-#net = cv2.dnn.readNet("weight/yolov3-tiny.weights", "cfg/yolov3-tiny.cfg")
-net = cv2.dnn.readNet("test.weights", "yolov4-obj.cfg")
+home_path = os.path.expanduser('~')
+net = cv2.dnn.readNet(f"{home_path}/C22-PS298-Capstone-Project/ML/model/yolov4-obj_last.weights", f"{home_path}/C22-PS298-Capstone-Project/ML/model/yolov4-obj.cfg")
 classes = []
-with open("classes.txt", "r") as f:
+
+with open(f"{home_path}/C22-PS298-Capstone-Project/ML/model/classes.txt", "r") as f:
     classes = [line.strip() for line in f.readlines()]
 layer_names = net.getLayerNames()
 output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()]
-colors = np.random.uniform(0, 255, size=(len(classes), 3)) #Generate Random Color
 
 # Load Video
 cap = cv2.VideoCapture(0) #0 -> Webcam; "/path"
@@ -62,7 +63,6 @@ while True:
             x, y, w, h = boxes[i]
             label = str(classes[class_ids[i]])
             confidence = confidences[i]
-            # color = colors[i]
             color = (255,255,255)
             cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
             cv2.putText(frame, label, (x, y+30), font, 1, color, 2)
